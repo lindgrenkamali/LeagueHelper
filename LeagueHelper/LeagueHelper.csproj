@@ -5,6 +5,7 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <AssemblyName>$(MSBuildProjectName)</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,10 +13,26 @@
     <EmbeddedResource Remove="Data\**" />
     <None Remove="Data\**" />
     <Page Remove="Data\**" />
+	  
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="XamlRadialProgressBar" Version="1.0.3" />
+	  <PackageReference Include="Microsoft.Expression.Drawing" Version="3.0.0" />
   </ItemGroup>
+
+	<ItemGroup>
+		<Content Include="Resources\Fonts\Friz Quadrata Bold.otf" />
+		<Content Include="Resources\Fonts\Friz Quadrata Italic.ttf" />
+		<Content Include="Resources\Fonts\Friz Quadrata Regular.ttf" />
+		<Content Include="Resources\Fonts\Friz Quadrata Std Medium.otf" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="Syncfusion.SfProgressBar.WPF">
+	    <HintPath>..\..\..\..\.nuget\packages\syncfusion.sfprogressbar.wpf\17.3.0.14\lib\netcoreapp3.0\Syncfusion.SfProgressBar.WPF.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
 
 </Project>

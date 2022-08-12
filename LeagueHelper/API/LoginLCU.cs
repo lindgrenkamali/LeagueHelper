@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using LeagueHelper;
 
 namespace LeagueHelper.Login
 {
@@ -18,7 +19,7 @@ namespace LeagueHelper.Login
         public string Username = "riot";
         
 
-        public async void GetCurrentSummoner()
+        public async void GetCurrentSummoner(string LoginURL, string Password)
         {
             try
             {
@@ -28,20 +29,20 @@ namespace LeagueHelper.Login
             handler.ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
 
             HttpClient client = new HttpClient(handler);
-            var authString = Encoding.ASCII.GetBytes(Username + ":" + LockFile.FileManager.Password);
+            var authString = Encoding.ASCII.GetBytes(Username + ":" + Password);
             
             client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(authString));
-            string response = await client.GetStringAsync(LockFile.FileManager.LoginURL);
+            string response = await client.GetStringAsync(LoginURL);
             cs = Newtonsoft.Json.JsonConvert.DeserializeObject<CurrentSummoner>(response);
 
                 MainWindow.main.Dispatcher.Invoke(new Action(delegate()
                 {
-                    MainWindow.main.SummonerNameLabel.Content = cs.DisplayName;
+                    MainWindow.main.SummonerNameText.Text = cs.DisplayName;
                     
-                    string iconPath = @"C:\Users\david\Downloads\dragontail-12.14.1\12.14.1\img\profileicon\" + cs.ProfileIconId + ".png";
+                    string iconPath = @"C:\Users\david\Downloads\dragontail-12.14.1\12.14.1\img\profileicon\" + cs.ProfileIconID + ".png";
                     
                     MainWindow.main.SummonerIcon.Source = new ImageSourceConverter().ConvertFromString(iconPath) as ImageSource;
-                    MainWindow.main.LevelLabel.Content = cs.SummonerLevel;
+                    MainWindow.main.LevelText.Text = cs.SummonerLevel.ToString();
                 }));
 
 
@@ -50,7 +51,7 @@ namespace LeagueHelper.Login
             catch(Exception ex)
             {
                 
-                GetCurrentSummoner();
+                this.GetCurrentSummoner(LoginURL, Password);
             }
         }
     }

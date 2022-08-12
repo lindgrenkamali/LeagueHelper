@@ -9,7 +9,7 @@ namespace LeagueHelper.Models
 {
     public class CurrentSummoner
     {
-        public ulong AccountId { get; set; }
+        public ulong AccountID { get; set; }
         public string DisplayName { get; set; }
 
         public string InternalName { get; set; }
@@ -20,14 +20,14 @@ namespace LeagueHelper.Models
 
         public string Privacy { get; set; }
 
-        public ushort ProfileIconId { get; set; }
+        public ushort ProfileIconID { get; set; }
 
-        public string PuuId { get; set; }
+        public string PUUID { get; set; }
 
         [JsonProperty("rerollPoints")]
         RerollPoints RerollPoints { get; set; }
 
-        public uint SummonerId { get; set; }
+        public uint SummonerID { get; set; }
 
         public ushort SummonerLevel { get; set; }
 

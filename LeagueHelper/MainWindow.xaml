@@ -3,26 +3,61 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:LeagueHelper"
+        xmlns:Syncfusion="http://schemas.syncfusion.com/wpf" xmlns:xrpb="http://XamlRadialProgressBar/DotNet"
+        xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
         mc:Ignorable="d"
-        Height="720" Width="1280">
-    <Grid Background="DodgerBlue">
+        x:Name="circularProgressBar"
+        Height="720" Width="1280" Foreground="White" FontFamily="Franklin Gothic Book">
+    
+
+    <Grid>
+        
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1280"/>
+            <ColumnDefinition Width="260"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="300"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="150"/>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="30"/>
+
         </Grid.RowDefinitions>
 
-        <Image Source="C:\Users\david\source\repos\LeagueHelper\LeagueHelper\4546.png" Height="90"></Image>
-        <TextBlock Grid.Column="1" FontSize="30" Foreground="White" Margin="20" FontFamily="Copperplate Gothic Light" >LeagueHelper</TextBlock>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\david\Downloads\dragontail-12.14.1\img\champion\splash\Aatrox_0.jpg" />
+        </Grid.Background>
 
 
-        <Button RenderTransformOrigin="0.062,0.084" Margin="510,55,625,541" FontSize="24">Home</Button>
-        <Image x:Name="SummonerIcon" HorizontalAlignment="Left" Height="90" Margin="974,146,0,0" VerticalAlignment="Top" Width="90"/>
-        <Label x:Name="SummonerNameLabel" Content="" HorizontalAlignment="Left" Margin="942,241,0,0" VerticalAlignment="Top" Width="156" RenderTransformOrigin="1.225,-0.679" FontSize="20"/>
-        <Label x:Name="LevelLabel" Content="" HorizontalAlignment="Left" Margin="939,301,0,0" VerticalAlignment="Top" Width="166" RenderTransformOrigin="1.225,-0.679" FontSize="20"/>
+        <Grid Background="DodgerBlue" Grid.Row="0"/>
 
 
+        <TextBlock Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" FontFamily="Copperplate Gothic Light"><Run Text="LeagueHelper"/></TextBlock>
+
+        <Border Grid.Column="1" CornerRadius="8,8,8,8" Margin="0, 10, 0, 0">
+            <Border.Background>
+                <ImageBrush ImageSource="C:\Users\david\source\repos\LeagueHelper\LeagueHelper\4546.png"/>
+            </Border.Background>
+        </Border>
+
+        <Button BorderThickness="0" Margin="40, 0, 0 ,0" Grid.Column="2" Foreground="White" Background="DodgerBlue" FontSize="24" Content="Home" />
+
+        <Image Grid.Column="0" Grid.Row="4" x:Name="SummonerIcon" Source="Pictures\default.png" Width="90" />
+
+        <TextBlock Grid.Column="0" Grid.Row="5" x:Name="SummonerNameText"  Text="Loading..." HorizontalAlignment="Center" FontSize="20" />
+
+
+        <TextBlock x:Name="LevelText" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" Margin="40, 9, 0, 0" FontSize="10" Text="0"/>
+        <TextBlock HorizontalAlignment="Center" Grid.Row="3" FontSize="10">0/0</TextBlock>
+        
+        <ed:Arc x:Name="ARC" Fill="White"  Height="20" Width="20" Stretch="None"
+                ArcThickness="1" EndAngle="1" Grid.Row="2" StartAngle="180"/>
     </Grid>
+
 </Window>

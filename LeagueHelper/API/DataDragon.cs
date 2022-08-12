@@ -21,7 +21,7 @@ namespace LeagueHelper.API
         string LatestVersion { get; set; }
 
         string APIUrl = "https://ddragon.leagueoflegends.com/api/versions.json";
-        public async void GetLatestVersion()
+        public async Task GetLatestVersion()
         {
             using (client)
             {

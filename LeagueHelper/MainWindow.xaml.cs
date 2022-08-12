@@ -27,9 +27,11 @@ namespace LeagueHelper
         public MainWindow()
         {
             InitializeComponent();
-            
+
+            GetClientSummoner gcs = new();
+
             main = this;
-            Thread t = new Thread(() => LockFile.FileManager.ReadLockFile());
+            Thread t = new Thread(() => gcs.Run());
             RunAsync();
             t.Start();
         }
