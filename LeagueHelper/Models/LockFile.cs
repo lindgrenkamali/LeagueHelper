@@ -19,67 +19,9 @@ namespace LeagueHelper.Models
 
         public string Protocol { get; set; }
 
-        public static bool Exists = false;
+        public bool Exists = false;
 
-        public static List<string> LockFileList = new();
-
-        public static string NormalClientPath = @"C:\Riot Games\League of Legends\lockfile";
-
-        public static string PBEClientPath = @"C:\Riot Games\League of Legends (PBE)\lockfile";
-
-
-        public static LockFile Read()
-        {
-            string path = "";
-            LockFile lf = new();
-            while (Exists == false)
-            {
-
-                if(File.Exists(NormalClientPath))
-                {
-                    path = NormalClientPath;
-                }
-
-                else if(File.Exists(PBEClientPath))
-                {
-                    path = PBEClientPath;
-                }
-
-                
-
-                if (path != "")
-                {
-                    try
-                    {
-                        using (Stream stream = new FileStream(path, FileMode.Open, FileAccess.Read,
-                        FileShare.ReadWrite))
-                        {
-                            using (StreamReader sr = new StreamReader(stream))
-                            {
-                                LockFileList = sr.ReadLine().Split(":").ToList();
-
-                            }
-
-                        }
-
-                        lf.ProcessName = LockFileList[0];
-                        lf.ProcessID = uint.Parse(LockFileList[1]);
-                        lf.Port = uint.Parse(LockFileList[2]);
-                        lf.Password = LockFileList[3];
-                        lf.Protocol = LockFileList[4];
-                        Exists = true;
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception(ex.Message);
-                    }
-
-                }
-                Thread.Sleep(1000);
-            }
-            return lf;
-        }
-
+        public List<string> LockFileList = new();
 
     }
 }

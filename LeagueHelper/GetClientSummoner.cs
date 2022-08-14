@@ -1,4 +1,5 @@
-﻿using LeagueHelper.Models;
+﻿using LeagueHelper.Backend;
+using LeagueHelper.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace LeagueHelper
     {
         public void Run()
         {
-            LockFile lf = LockFile.Read();
+            LockFile lf = FileManager.ReadLockFile(FileManager.RiotPath());
 
             string LoginURL = @"https://127.0.0.1:" + lf.Port + "/lol-summoner/v1/current-summoner";
             

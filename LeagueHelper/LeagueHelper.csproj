@@ -19,7 +19,7 @@
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="XamlRadialProgressBar" Version="1.0.3" />
-	  <PackageReference Include="Microsoft.Expression.Drawing" Version="3.0.0" />
+	  <PackageReference Include="Microsoft.EXpression.Drawing" Version="3.0.0" />
   </ItemGroup>
 
 	<ItemGroup>

@@ -1,4 +1,5 @@
-﻿using LeagueHelper.Models;
+﻿using LeagueHelper.Backend;
+using LeagueHelper.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace LeagueHelper
             InitializeComponent();
 
             GetClientSummoner gcs = new();
-
+            
             main = this;
             Thread t = new Thread(() => gcs.Run());
             RunAsync();

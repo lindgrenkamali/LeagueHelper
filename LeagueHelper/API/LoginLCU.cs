@@ -43,6 +43,14 @@ namespace LeagueHelper.Login
                     
                     MainWindow.main.SummonerIcon.Source = new ImageSourceConverter().ConvertFromString(iconPath) as ImageSource;
                     MainWindow.main.LevelText.Text = cs.SummonerLevel.ToString();
+                    MainWindow.main.CurrentXp.Text = $"{cs.XpUntilNextLevel}/{cs.XpSinceLastlevel}";
+                    MainWindow.main.ProgressXp.EndAngle = MainWindow.main.ProgressXp.StartAngle + ( cs.XpSinceLastlevel/ cs.XpUntilNextLevel);
+                    if (MainWindow.main.ProgressXp.EndAngle == MainWindow.main.ProgressXp.StartAngle)
+                    {
+                        MainWindow.main.ProgressXp.EndAngle = MainWindow.main.ProgressXp.StartAngle + 1;
+                    }
+                    Console.WriteLine();
+
                 }));
 
 

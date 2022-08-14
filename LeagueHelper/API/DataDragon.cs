@@ -13,7 +13,6 @@ namespace LeagueHelper.API
 {
     internal class DataDragon
     {
-
         HttpClient client = new();
 
         WebClient wc = new();

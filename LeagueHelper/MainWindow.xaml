@@ -12,7 +12,6 @@
 
     <Grid>
         
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="260"/>
             <ColumnDefinition Width="50"/>
@@ -22,11 +21,12 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="60" />
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="20"/>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="50" />
 
         </Grid.RowDefinitions>
 
@@ -42,22 +42,22 @@
 
         <Border Grid.Column="1" CornerRadius="8,8,8,8" Margin="0, 10, 0, 0">
             <Border.Background>
-                <ImageBrush ImageSource="C:\Users\david\source\repos\LeagueHelper\LeagueHelper\4546.png"/>
+                <ImageBrush ImageSource="C:\Users\david\Source\Repos\lindgrenkamali\LeagueHelper\LeagueHelper\Resources\4546.png"/>
             </Border.Background>
         </Border>
 
         <Button BorderThickness="0" Margin="40, 0, 0 ,0" Grid.Column="2" Foreground="White" Background="DodgerBlue" FontSize="24" Content="Home" />
 
-        <Image Grid.Column="0" Grid.Row="4" x:Name="SummonerIcon" Source="Pictures\default.png" Width="90" />
+        <Image Grid.Column="0" Grid.Row="5" x:Name="SummonerIcon" Source="Pictures\default.png" Width="90" />
 
-        <TextBlock Grid.Column="0" Grid.Row="5" x:Name="SummonerNameText"  Text="Loading..." HorizontalAlignment="Center" FontSize="20" />
+        <TextBlock Grid.Column="0" Grid.Row="6" x:Name="SummonerNameText" Margin="0, 10, 0, 0" Text="Loading..." HorizontalAlignment="Center" FontSize="20" />
 
 
-        <TextBlock x:Name="LevelText" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" Margin="40, 9, 0, 0" FontSize="10" Text="0"/>
-        <TextBlock HorizontalAlignment="Center" Grid.Row="3" FontSize="10">0/0</TextBlock>
+        <TextBlock x:Name="LevelText" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" Margin="40, 9, 0, 30" FontSize="10" Height="10" Text="0"/>
+        <TextBlock x:Name="CurrentXp" HorizontalAlignment="Center" Margin="0, 37, 0, 0" Grid.Row="3" FontSize="10">0/0</TextBlock>
         
-        <ed:Arc x:Name="ARC" Fill="White"  Height="20" Width="20" Stretch="None"
-                ArcThickness="1" EndAngle="1" Grid.Row="2" StartAngle="180"/>
+        <ed:Arc x:Name="ProgressXp" Fill="White" Margin="0, 0, 0, 20"  Height="20" Width="20" Stretch="None"
+                ArcThickness="1" Grid.Row="3" StartAngle="180"/>
     </Grid>
 
 </Window>
