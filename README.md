@@ -1,6 +1,6 @@
 # Work in progress...
 
-# LeagueHepler
+# LeagueHepler - WPF
 
 # Requires
 To be logged in to the League of Legends client
